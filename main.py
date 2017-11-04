@@ -11,7 +11,7 @@ def isBalanced(brackets):
     stack = []
     balanced = True
     for index, bracket in enumerate(brackets):
-        if bracket is '{[(':
+        if bracket in '{[(':
             stack.append(bracket)
         else:
             if not stack:
@@ -33,4 +33,4 @@ def isMatches (openBracket, closeBracket):
     closeBrackets = '}])'
     return openBrackets.index(openBracket) == closeBrackets.index(closeBracket)
 
-print(isBalanced('()(){}[]'))
+print(isBalanced('(()(){}[])'))
