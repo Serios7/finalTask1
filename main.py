@@ -35,17 +35,5 @@ def is_matches(open_bracket, close_bracket):
     return open_brackets.index(open_bracket) == close_brackets.index(close_bracket)
 
 
-def count_words(text):
-    result = re.findall(r"[{[(}\])]", text)
-    return result
-
-
-def qwe(string):
-    brackets = ''
-
-    return brackets
-
-
-string = '{2+[2+3][]{*(2+9)+1}'
-
-print(is_balanced(count_words(string)))
+def get_sequence_brackets(text):
+    return re.findall(r"[{[(}\])]", text)
