@@ -36,5 +36,7 @@ def get_sequence_brackets(expression):
 def solution_expression(expression):
     expression = re.sub(r"[{[]",'(', expression)
     expression = re.sub(r"[}\]]", ')', expression)
-    return eval(expression)
-    pass
+    try:
+        return eval(expression)
+    except Exception as e:
+        return e.args[0]
