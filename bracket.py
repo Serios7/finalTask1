@@ -29,5 +29,12 @@ def is_matches(open_bracket, close_bracket):
     return open_brackets.index(open_bracket) == close_brackets.index(close_bracket)
 
 
-def get_sequence_brackets(text):
-    return re.findall(r"[{[(}\])]", text)
+def get_sequence_brackets(expression):
+    return re.findall(r"[{[(}\])]", expression)
+
+
+def solution_expression(expression):
+    expression = re.sub(r"[{[]",'(', expression)
+    expression = re.sub(r"[}\]]", ')', expression)
+    return eval(expression)
+    pass
