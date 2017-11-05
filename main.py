@@ -6,7 +6,7 @@
 
 import bracket as b
 
-path = 'test.txt'
+path = input('Путь к входному файлу: ')
 
 try:
     with open(path) as file:
