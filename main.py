@@ -4,10 +4,10 @@
 # В случае сбалансированности вывести результат вычисления выражения,
 # иначе вывести сообщение об ошибке.
 
+import re
 
 
-
-def isBalanced(brackets):
+def is_balanced(brackets):
     stack = []
     balanced = True
     for index, bracket in enumerate(brackets):
@@ -17,8 +17,8 @@ def isBalanced(brackets):
             if not stack:
                 balanced = False
             else:
-                openBracket = stack.pop()
-                if not isMatches(openBracket, bracket):
+                open_bracket = stack.pop()
+                if not is_matches(open_bracket, bracket):
                     balanced = False
         if not balanced:
             break
@@ -28,9 +28,24 @@ def isBalanced(brackets):
     else:
         return False
 
-def isMatches (openBracket, closeBracket):
-    openBrackets = '{[('
-    closeBrackets = '}])'
-    return openBrackets.index(openBracket) == closeBrackets.index(closeBracket)
 
-print(isBalanced('(()(){}[])'))
+def is_matches(open_bracket, close_bracket):
+    open_brackets = '{[('
+    close_brackets = '}])'
+    return open_brackets.index(open_bracket) == close_brackets.index(close_bracket)
+
+
+def count_words(text):
+    result = re.findall(r"[{[(}\])]", text)
+    return result
+
+
+def qwe(string):
+    brackets = ''
+
+    return brackets
+
+
+string = '{2+[2+3][]{*(2+9)+1}'
+
+print(is_balanced(count_words(string)))
