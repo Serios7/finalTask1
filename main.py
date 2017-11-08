@@ -6,7 +6,7 @@
 
 import bracket as b
 
-path = input('Путь к входному файлу: ')
+path = 'test.txt' #input('Путь к входному файлу: ')
 
 try:
     with open(path) as file:
@@ -22,5 +22,6 @@ try:
             print('Выражение не содержит скобок!')
             solution = b.solution_expression(expression)
             print(solution)
+# Устаревшее исключение
 except IOError as e:
     print(e.strerror)

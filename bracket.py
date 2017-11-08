@@ -1,18 +1,20 @@
 import re
 
+BRACKETS = {'{': '}', '[': ']', '(': ')'}
 
-def is_balanced(brackets):
+
+def is_balanced(sequence_brackets):
     stack = []
     balanced = True
-    for index, bracket in enumerate(brackets):
-        if bracket in '{[(':
+    for index, bracket in enumerate(sequence_brackets):
+        if bracket in BRACKETS.keys():
             stack.append(bracket)
         else:
             if not stack:
                 balanced = False
             else:
                 open_bracket = stack.pop()
-                if not is_matches(open_bracket, bracket):
+                if bracket != BRACKETS.get(open_bracket):
                     balanced = False
         if not balanced:
             break
@@ -22,21 +24,15 @@ def is_balanced(brackets):
     else:
         return False
 
-
-def is_matches(open_bracket, close_bracket):
-    open_brackets = '{[('
-    close_brackets = '}])'
-    return open_brackets.index(open_bracket) == close_brackets.index(close_bracket)
-
-
 def get_sequence_brackets(expression):
     return re.findall(r"[{[(}\])]", expression)
 
 
 def solution_expression(expression):
-    expression = re.sub(r"[{[]",'(', expression)
+    expression = re.sub(r"[{[]", '(', expression)
     expression = re.sub(r"[}\]]", ')', expression)
     try:
         return eval(expression)
+    # Общее исключение исправить
     except Exception as e:
         return e.args[0]
