@@ -22,6 +22,5 @@ try:
             print('Выражение не содержит скобок!')
             solution = b.solution_expression(expression)
             print(solution)
-# Устаревшее исключение
 except IOError as e:
     print(e.strerror)

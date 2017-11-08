@@ -24,6 +24,7 @@ def is_balanced(sequence_brackets):
     else:
         return False
 
+
 def get_sequence_brackets(expression):
     return re.findall(r"[{[(}\])]", expression)
 
@@ -33,6 +34,5 @@ def solution_expression(expression):
     expression = re.sub(r"[}\]]", ')', expression)
     try:
         return eval(expression)
-    # Общее исключение исправить
     except Exception as e:
         return e.args[0]
